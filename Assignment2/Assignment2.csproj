@@ -1,8 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages_For_Hotel\Frontpage\" />
+    <Folder Include="Pages_For_Hotel\Kitchen\" />
+    <Folder Include="Pages_For_Hotel\" />
+    <Folder Include="Pages_For_Hotel\Restaurent\" />
+    <Folder Include="Pages_For_Hotel\Reception\" />
+  </ItemGroup>
 
 
 
