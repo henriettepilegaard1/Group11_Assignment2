@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Assignment2\\Assignment2\\Assignment2.csproj",
+      "projectUniqueName": "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Group11_Assignment2\\Assignment2\\Assignment2.csproj",
       "projectName": "Assignment2",
-      "projectPath": "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Assignment2\\Assignment2\\Assignment2.csproj",
+      "projectPath": "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Group11_Assignment2\\Assignment2\\Assignment2.csproj",
       "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Assignment2\\Assignment2\\obj\\",
+      "outputPath": "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Group11_Assignment2\\Assignment2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
