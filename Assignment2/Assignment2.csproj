@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Pages_For_Hotel\Frontpage\" />
-    <Folder Include="Pages_For_Hotel\Kitchen\" />
-    <Folder Include="Pages_For_Hotel\" />
-    <Folder Include="Pages_For_Hotel\Restaurent\" />
-    <Folder Include="Pages_For_Hotel\Reception\" />
+    <Folder Include="Views\Pages_For_Hotel\Frontpage\" />
+    <Folder Include="Views\Pages_For_Hotel\Kitchen\" />
+    <Folder Include="Views\Pages_For_Hotel\" />
+    <Folder Include="Views\Pages_For_Hotel\Restaurent\" />
+    <Folder Include="Views\Pages_For_Hotel\Reception\" />
   </ItemGroup>
 
 
