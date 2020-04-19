@@ -10,7 +10,7 @@ namespace Assignment2.Controllers
     [Authorize("IsAdmin")]
     public class ReceptionController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Reception()
         {
             return View();
         }

@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Group11_Assignment2\\Assignment2\\Assignment2.csproj": {}
+    "C:\\Users\\Caroline Kaagaard\\Documents\\GitHub\\Group11_Assignment2\\Assignment2\\Assignment2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Group11_Assignment2\\Assignment2\\Assignment2.csproj": {
+    "C:\\Users\\Caroline Kaagaard\\Documents\\GitHub\\Group11_Assignment2\\Assignment2\\Assignment2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Group11_Assignment2\\Assignment2\\Assignment2.csproj",
+        "projectUniqueName": "C:\\Users\\Caroline Kaagaard\\Documents\\GitHub\\Group11_Assignment2\\Assignment2\\Assignment2.csproj",
         "projectName": "Assignment2",
-        "projectPath": "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Group11_Assignment2\\Assignment2\\Assignment2.csproj",
-        "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\henri\\OneDrive - Aarhus universitet\\GUI\\Group11_Assignment2\\Assignment2\\obj\\",
+        "projectPath": "C:\\Users\\Caroline Kaagaard\\Documents\\GitHub\\Group11_Assignment2\\Assignment2\\Assignment2.csproj",
+        "packagesPath": "C:\\Users\\Caroline Kaagaard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Caroline Kaagaard\\Documents\\GitHub\\Group11_Assignment2\\Assignment2\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\henri\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Caroline Kaagaard\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -102,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -13,10 +13,9 @@ namespace Assignment2.Controllers
     {
         //private readonly ApplicationDbContext _context;
 
-        public IActionResult Index()
+        public IActionResult Restaurant()
         {
             return View();
         }
-        //Kalle <3
     }
 }

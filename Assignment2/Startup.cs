@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Assignment2
 {
@@ -38,12 +39,40 @@ namespace Assignment2
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<Staff>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            //? Taget fra eksemplet : https://docs.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-3.1&tabs=visual-studio
+            // Prøv at udfør eksemplet fuldt ud ...
+
+            //! Fejler ved at den muligvis ikke kender noget, der har typen IdentityUser / Role
+            //services.AddDefaultIdentity<Staff>()
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>()
+            //    .AddDefaultTokenProviders();
+
+            //            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+            //                .AddRazorPagesOptions(options =>
+            //                {
+            //                    options.AllowAreas = true;
+            //                    options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+            //                    options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
+            //                });
+
+            //services.ConfigureApplicationCookie(options =>
+            //{
+            //    options.LoginPath = $"/Identity/Account/Login";
+            //    options.LogoutPath = $"/Identity/Account/Logout";
+            //    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            //});
+
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            // services.AddSingleton<IEmailSender, EmailSender>();
+
 
 
             services.AddAuthorization(options =>
             {
+                //TODO ændre roller til receptionist, etc...
                 options.AddPolicy(
                     "IsAdmin",
                     policyBuilder => policyBuilder
@@ -69,6 +98,7 @@ namespace Assignment2
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
