@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Assignment2.Controllers
 {
+    [Authorize("IsReceptionStaff")]
     public class RestaurantController : Controller
     {
         //private readonly ApplicationDbContext _context;
