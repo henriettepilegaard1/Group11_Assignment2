@@ -3,5 +3,17 @@
     ViewData["Title"] = "Kitchen";
 }
 
-<h1>KitchenPage</h1>
+<h1>Køkkenets side</h1>
+Her kan du finde informationer om følgende på en givet dato: det forventet antal gæster i alt samt hvor mange voksne og børn. <br/><br/>Du kan desuden finde info omkring antal voksne og børn checket ind.
+<br/>Samt hvor mange, der endnu ikke er checket ind i alt, herunder hvor mange voksne og børn.
+<br/>
 
+
+<form action="/action_page.php">
+    <label for="givenDate">Vis information for denne dato:</label>
+    <input type="date" id="givenDate" name="givenDate">
+    <input type="submit" value="Vis information">
+</form>
+
+<br/>
+<button type="button" onclick="alert('Informationen er opdateret!')">Opdater information!</button>

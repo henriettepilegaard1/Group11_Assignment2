@@ -12,8 +12,45 @@
         <img src="/Images/danglePic.jpg" alt="D'angleterre Logo" style="width:350px;height:150px;">
     </figure>
 
-    <h1 class="display-4">Velkommen til hotel D'angleterre's <br /> personale side</h1>
-    <p>Her kan du finde information omkring bestilling af morgenmad blandt hotellets gæster og besøgende. <br /> I menuen for oven, kan du vælge hvilken afdeling du ønsker at tilgå </p>
+    <p> <b>Her kan du checke gæster ind til morgenmaden</b> <br /> Hvor mange gæster ønsker du at checke ind?</p>
 
-</div>
+    <form action="/action_page.php">
+        <label for="roomno">Værelsesnummer:</label><br>
+        <input list="hosting-plan" type="text">
+
+        <datalist id="hosting-plan">
+            @*<option value="1" />
+        <option value="2" />
+        <option value="3" />
+        <option value="4" />
+        <option value="5" />*@
+            @for ( int i = 1; i <= 100; i++)
+            {
+                <option value="@i"></option>
+            }
+        </datalist> <br>
+
+        <label for="noAdults">Antal voksne:</label><br>
+        <input list="hosting-plan" type="text">
+
+        <datalist id="hosting-plan">
+            @for (int i = 1; i <= 100; i++)
+            {
+                <option value="@i"></option>
+            }
+        </datalist><br>
+
+        <label for="noKids">Antal børn:</label><br>
+        <input list="hosting-plan" type="text">
+
+        <datalist id="hosting-plan">
+            @for (int i = 1; i <= 100; i++)
+            {
+                <option value="@i"></option>
+            }
+        </datalist><br><br>
+        <input type="submit" value="Check ind">
+        </form>
+
+    </div>
 </body>

@@ -9,7 +9,6 @@ namespace Assignment2.Controllers
 {
     public class KitchenController : Controller
     {
-        [Authorize("IsAdmin")]
         public IActionResult Kitchen()
         {
             return View();
