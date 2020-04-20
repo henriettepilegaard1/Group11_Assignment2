@@ -37,6 +37,9 @@ namespace Assignment2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -74,9 +77,15 @@ namespace Assignment2
             {
                 //TODO ændre roller til receptionist, etc...
                 options.AddPolicy(
-                    "IsAdmin",
+                    "IsReceptionStaff",
                     policyBuilder => policyBuilder
                         .RequireRole(StaffRoles.Reception));
+
+                options.AddPolicy(
+                    "IsRestaurantStaff",
+                    policyBuilder => policyBuilder
+                        .RequireRole(StaffRoles.Restaurant));
+
             });
         }
 
