@@ -9,9 +9,7 @@ namespace Assignment2.Models
     public class Staff : IdentityUser
     {
         public string Name { get; set; }
+
+        public string Role { get; set; }
     }
-
-
-
-
 }

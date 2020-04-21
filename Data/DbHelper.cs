@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Assignment2.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace Assignment2.Data
 {
@@ -19,65 +20,69 @@ namespace Assignment2.Data
 
         private static void SeedUsers(UserManager<Staff> userManager, ILogger log)
         {
-            log.LogInformation("Seeding Staff entries");
-                var sr = new Staff()
-                {
-                    Name = "Lucas"
+            const string adminEmailOne = "Lucas@localhost";
+            const string adminPasswordOne = "1234";
 
+            const string adminEmailTwo = "Caroline@localhost";
+            const string adminPasswordTwo = "1234";
+
+            const string adminEmailThree = "Henriette@localhost";
+            const string adminPasswordThree = "1234";
+
+            if (userManager.FindByNameAsync(adminEmailOne).Result == null)
+            {
+                log.LogWarning("Seeding admin user");
+                var user = new Staff
+                {
+                    UserName = adminEmailOne,
+                    Email = adminEmailOne,
+                    Name = "Lucas",
                 };
-                IdentityResult result1 = userManager.CreateAsync(sr, "hejhejhej").Result;
-                if (result1.Succeeded)
+                IdentityResult result = userManager.CreateAsync
+                    (user, adminPasswordOne).Result;
+                if (result.Succeeded)
                 {
-                    IdentityResult resultAdd1 = userManager.AddToRoleAsync(sr, StaffRoles.Reception).Result;
-                    if(!resultAdd1.Succeeded)
-                    {
-                        log.LogInformation("AddToRoleAsync Failed!");
-                    }
+                    var adminClaim = new Claim("Reception", "Yes");
+                    userManager.AddClaimAsync(user, adminClaim);
                 }
-                else
-                {
-                    log.LogInformation("CreateAsync Failed!");
-                }
-                
-            log.LogInformation("Seeding Staff entries");
-                var sr2 = new Staff()
-                {
-                    Name = "Caroline"
+            }
 
+
+            if (userManager.FindByNameAsync(adminEmailTwo).Result == null)
+            {
+                log.LogWarning("Seeding admin user");
+                var user = new Staff
+                {
+                    UserName = adminEmailTwo,
+                    Email = adminEmailTwo,
+                    Name = "Caroline",
                 };
-                IdentityResult result2 = userManager.CreateAsync(sr2, "cavseline").Result;
-                if (result2.Succeeded)
+                IdentityResult result = userManager.CreateAsync
+                    (user, adminPasswordTwo).Result;
+                if (result.Succeeded)
                 {
-                    IdentityResult resultAdd2 = userManager.AddToRoleAsync(sr2, StaffRoles.Kitchen).Result;
-                    if(!resultAdd2.Succeeded)
-                    {
-                        log.LogInformation("AddToRoleAsync Failed!");
-                    }
-                }   
-                else
-                {
-                    log.LogInformation("CreateAsync Failed!");
-                } 
-
-                log.LogInformation("Seeding Staff entries");
-                var sr3 = new Staff() 
-                {
-                    Name = "Henriette"
-                }; 
-
-                IdentityResult result3 = userManager.CreateAsync(sr3, "hejhejhej").Result; 
-                if (result3.Succeeded) 
-                { 
-                    IdentityResult resultAdd3 = userManager.AddToRoleAsync(sr3, StaffRoles.Restaurant).Result; 
-                    if (!resultAdd3.Succeeded)
-                    {
-                        log.LogInformation("AddToRoleAsync Failed!");
-                    }
+                    var adminClaim = new Claim("Resturant", "Yes");
+                    userManager.AddClaimAsync(user, adminClaim);
                 }
-                else
+            }
+
+            if (userManager.FindByNameAsync(adminEmailThree).Result == null)
+            {
+                log.LogWarning("Seeding admin user");
+                var user = new Staff
                 {
-                log.LogInformation("CreateAsync Failed!");
+                    UserName = adminEmailThree,
+                    Email = adminEmailThree,
+                    Name = "Henriette",
+                };
+                IdentityResult result = userManager.CreateAsync
+                    (user, adminPasswordThree).Result;
+                if (result.Succeeded)
+                {
+                    var adminClaim = new Claim("Reception", "Yes");
+                    userManager.AddClaimAsync(user, adminClaim);
                 }
+            }
         }
 
         private static void SeedBookings(ApplicationDbContext db, ILogger log)
