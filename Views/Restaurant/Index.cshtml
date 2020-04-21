@@ -1,4 +1,5 @@
-﻿
+﻿@model Assignment2.Models.Message
+
 @{
     ViewData["Title"] = "Restaurant";
 }
@@ -12,7 +13,7 @@
         <img src="/Images/danglePic.jpg" alt="D'angleterre Logo" style="width:350px;height:150px;">
     </figure>
 
-    <p> <b>Her kan du checke gæster ind til morgenmaden</b> <br /> Hvor mange gæster ønsker du at checke ind?</p>
+    <p> <b>@Model.msg Her kan du checke gæster ind til morgenmaden</b> <br /> Hvor mange gæster ønsker du at checke ind?</p>
 
     <form action="/action_page.php">
         <label for="roomno">Værelsesnummer:</label><br>
