@@ -5,11 +5,53 @@
 
 <h1>Reception</h1>
 
+<p><b>Her kan du booke gæster til morgenmad på en ønsket dato</b> <br /> Hvilke gæster ønsker du at checke ind?</p>
+
+<br />
+
+<br />
 <form action="/action_page.php">
-    <label for="givenDate">Vis information for denne dato:</label>
+    <label for="givenDate">Vælg dato:</label>
     <input type="date" id="givenDate" name="givenDate">
-    <input type="submit" value="Vis information">
 </form>
+
+<form action="/action_page.php">
+    <label for="roomno">Værelsesnummer:</label><br>
+    <input list="room-no" type="text">
+
+    <datalist id="room-no">
+
+        @for (int i = 1; i <= 100; i++)
+        {
+            <option value="@i"></option>
+        }
+    </datalist> <br>
+
+    <label for="noAdults">Antal voksne:</label><br>
+    <input list="no-adults" type="text">
+
+    <datalist id="no-adults">
+        @for (int i = 1; i <= 100; i++)
+        {
+            <option value="@i"></option>
+        }
+    </datalist><br>
+
+    <label for="noKids">Antal børn:</label><br>
+    <input list="no-kids" type="text">
+
+    <datalist id="no-kids">
+        @for (int i = 1; i <= 100; i++)
+        {
+            <option value="@i"></option>
+        }
+    </datalist><br><br>
+    <input type="submit" value="Book til morgenmad">
+</form>
+
+<p><b>Vis gæster der har været til morgenmad på den valgte dato</b></p>
+
+<input type="submit" value="Vis" class="button" />
 
 
 
