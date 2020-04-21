@@ -20,8 +20,8 @@ namespace Assignment2.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("Assignment2ContextConnection")));
 
-                services.AddDefaultIdentity<Staff>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<Assignment2Context>();
+                /*services.AddDefaultIdentity<Staff>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddEntityFrameworkStores<Assignment2Context>();*/
             });
         }
     }

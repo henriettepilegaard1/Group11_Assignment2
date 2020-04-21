@@ -37,8 +37,11 @@ namespace Assignment2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //services.AddIdentity<IdentityUser, IdentityRole>()
-              //  .AddEntityFrameworkStores<ApplicationDbContext>();
+            /*services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();*/
+
+            services.AddDefaultIdentity<Staff>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -79,12 +82,12 @@ namespace Assignment2
                 options.AddPolicy(
                     "IsReceptionStaff",
                     policyBuilder => policyBuilder
-                        .RequireRole(StaffRoles.Reception));
+                        .RequireClaim("Resturant"));
 
                 options.AddPolicy(
                     "IsRestaurantStaff",
                     policyBuilder => policyBuilder
-                        .RequireRole(StaffRoles.Restaurant));
+                        .RequireClaim("Reception"));
 
             });
         }
