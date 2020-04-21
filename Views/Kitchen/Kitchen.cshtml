@@ -4,9 +4,11 @@
 }
 
 <h1>Køkkenets side</h1>
-Her kan du finde informationer om følgende på en givet dato: det forventet antal gæster i alt samt hvor mange voksne og børn. <br/><br/>Du kan desuden finde info omkring antal voksne og børn checket ind.
-<br/>Samt hvor mange, der endnu ikke er checket ind i alt, herunder hvor mange voksne og børn.
-<br/>
+Her kan du finde informationer om følgende på en givet dato: det forventet antal gæster i alt samt hvor mange voksne og børn.
+<br />
+<br />Du kan desuden finde info omkring antal voksne og børn checket ind.
+<br />Samt hvor mange, der endnu ikke er checket ind i alt, herunder hvor mange voksne og børn.
+<br />
 
 
 <form action="/action_page.php">
@@ -15,7 +17,75 @@ Her kan du finde informationer om følgende på en givet dato: det forventet ant
     <input type="submit" value="Vis information">
 </form>
 
+<textarea readonly name="expGuests" cols="40" rows="5" style="background-color:lightgray;">
+Forventet antal gæster i alt:
+</textarea>
+
+<br />
+
+<br />
+
+<textarea readonly name="expGuestsNo" cols="40" rows="5">
+0
+</textarea>
+
+<br />
+
+<br />
+
+<textarea readonly name="adults" cols="40" rows="5" style="background-color:lightgray;">
+Voksne checket ind:
+</textarea>
+
+<br />
+
+<br />
 
 
-<br/>
+<textarea readonly name="adultsNo" cols="40" rows="5">
+0
+</textarea>
+
+<br />
+
+<br />
+
+<textarea readonly name="kids" cols="40" rows="5" style="background-color:lightgray;">
+Børn checket ind:
+</textarea>
+
+<br />
+
+<br />
+
+<textarea readonly name="kidsNo" cols="40" rows="5">
+0
+</textarea>
+
+<br />
+
+<br />
+
+<textarea readonly name="notYetCheckedInNo" cols="40" rows="5" style="background-color:lightgray;">
+Endnu ikke checket ind i alt: 
+
+Børn:
+
+Voksne:
+</textarea>
+
+<br />
+
+<br />
+
+<textarea readonly name="notYetCheckedIn" cols="40" rows="5">
+0
+
+0
+
+0
+</textarea>
+<br />
+<br />
+<br />
 <button type="button" onclick="alert('Informationen er opdateret!')">Opdater information!</button>
