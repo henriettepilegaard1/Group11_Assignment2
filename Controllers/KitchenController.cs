@@ -14,6 +14,23 @@ namespace Assignment2.Controllers
             return View();
         }
 
-        
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var music = await _context.Musics
+        //        .FirstOrDefaultAsync(m => m.MusicId == id);
+        //    if (music == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(music);
+        //}
+
+
     }
 }
