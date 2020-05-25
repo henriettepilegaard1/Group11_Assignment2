@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
 using Assignment2.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +17,5 @@ namespace Assignment2.Data
         public DbSet<Bookings> Bookings { get; set; }
 
         public DbSet<CheckIns> CheckIns { get; set; }
-
-        public DbSet<Staff> Staffs { get; set; }
     }
 }

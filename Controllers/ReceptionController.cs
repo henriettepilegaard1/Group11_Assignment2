@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Assignment2.Controllers
 {
-    [Authorize("IsRestaurantStaff")]
+    [Authorize("IsReceptionStaff")] 
     public class ReceptionController : Controller
     {
         public IActionResult Reception()

@@ -5,6 +5,7 @@
 
 <h1>Reception</h1>
 
+<<<<<<< Updated upstream
 <p><b>Her kan du booke gæster til morgenmad på en ønsket dato</b> <br /> Hvilke gæster ønsker du at checke ind?</p>
 
 <br />
@@ -53,5 +54,59 @@
 
 <input type="submit" value="Vis" class="button" />
 
+=======
+<body>
+    <div class="text-center">
+>>>>>>> Stashed changes
+
+        <figure>
+            <img src="/Images/danglePic.jpg" alt="D'angleterre Logo" style="width:350px;height:150px;">
+        </figure>
+
+        <p> <b>Her kan du bestille morgenmad til dine gæster</b> <br /> Hvor mange gæster ønsker du at bestille morgenmad til?</p>
+
+        <form action="/action_page.php">
+            <label for="roomno">Værelsesnummer:</label><br>
+            <input list="hosting-plan" type="text">
+
+            <datalist id="hosting-plan">
+                @*<option value="1" />
+            <option value="2" />
+            <option value="3" />
+            <option value="4" />
+            <option value="5" />*@
+                @for (int i = 1; i <= 100; i++)
+                {
+                    <option value="@i"></option>
+                }
+            </datalist> <br>
+
+            <label for="noAdults">Antal voksne:</label><br>
+            <input list="hosting-plan" type="text">
+
+            <datalist id="hosting-plan">
+                @for (int i = 1; i <= 100; i++)
+                {
+                    <option value="@i"></option>
+                }
+            </datalist><br>
+
+            <label for="noKids">Antal børn:</label><br>
+            <input list="hosting-plan" type="text">
+
+            <datalist id="hosting-plan">
+                @for (int i = 1; i <= 100; i++)
+                {
+                    <option value="@i"></option>
+                }
+            </datalist><br>
+            <label for="date">Dato:</label><br>
+            <input type="date" id="givenDate" name="givenDate"><br><br>
+            <input type="submit" value="Bestil">
+        </form>
+
+        <p> <b>Herunder ses hvilke gæster har spist morgenmad i dag.</b> </p>
 
 
+    </div>
+</body>

@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Assignment2
 {
@@ -37,67 +38,57 @@ namespace Assignment2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+<<<<<<< Updated upstream
             /*services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();*/
 
             services.AddDefaultIdentity<Staff>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+=======
+>>>>>>> Stashed changes
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-
-            //? Taget fra eksemplet : https://docs.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-3.1&tabs=visual-studio
-            // Prøv at udfør eksemplet fuldt ud ...
-
-            //! Fejler ved at den muligvis ikke kender noget, der har typen IdentityUser / Role
-            //services.AddDefaultIdentity<Staff>()
-            //services.AddIdentity<IdentityUser, IdentityRole>()
-            //    .AddEntityFrameworkStores<ApplicationDbContext>()
-            //    .AddDefaultTokenProviders();
-
-            //            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-            //                .AddRazorPagesOptions(options =>
-            //                {
-            //                    options.AllowAreas = true;
-            //                    options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
-            //                    options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
-            //                });
-
-            //services.ConfigureApplicationCookie(options =>
-            //{
-            //    options.LoginPath = $"/Identity/Account/Login";
-            //    options.LogoutPath = $"/Identity/Account/Logout";
-            //    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
-            //});
-
-            // using Microsoft.AspNetCore.Identity.UI.Services;
-            // services.AddSingleton<IEmailSender, EmailSender>();
-
-
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddAuthorization(options =>
             {
-                //TODO ændre roller til receptionist, etc...
                 options.AddPolicy(
                     "IsReceptionStaff",
                     policyBuilder => policyBuilder
+<<<<<<< Updated upstream
                         .RequireClaim("Resturant"));
 
+=======
+                        .RequireRole("Reception"));
+            });
+            services.AddAuthorization(options =>
+            {
+>>>>>>> Stashed changes
                 options.AddPolicy(
-                    "IsRestaurantStaff",
+                    "IsResturantStaff",
                     policyBuilder => policyBuilder
+<<<<<<< Updated upstream
                         .RequireClaim("Reception"));
 
+=======
+                        .RequireRole("Restaurant"));
+>>>>>>> Stashed changes
             });
+
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
             
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<IdentityUser> userManager, ApplicationDbContext context, ILogger<Startup> log)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -113,12 +104,16 @@ namespace Assignment2
             app.UseAuthentication();
             app.UseAuthorization();
 
+            DbHelper.SeedData(context, userManager, log);
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+                endpoints.MapRazorPages();
+            }
+            );
         }
     }
 }

@@ -12,12 +12,12 @@ namespace Assignment2.Areas.Identity.Pages.Account.Manage
 {
     public class SetPasswordModel : PageModel
     {
-        private readonly UserManager<Staff> _userManager;
-        private readonly SignInManager<Staff> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
         public SetPasswordModel(
-            UserManager<Staff> userManager,
-            SignInManager<Staff> signInManager)
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

@@ -12,13 +12,13 @@ namespace Assignment2.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {
-        private readonly UserManager<Staff> _userManager;
-        private readonly SignInManager<Staff> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<ChangePasswordModel> _logger;
 
         public ChangePasswordModel(
-            UserManager<Staff> userManager,
-            SignInManager<Staff> signInManager,
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager,
             ILogger<ChangePasswordModel> logger)
         {
             _userManager = userManager;
