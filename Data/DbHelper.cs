@@ -6,7 +6,6 @@ using Assignment2.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System.Security.Claims;
 
 namespace Assignment2.Data
 {
@@ -15,34 +14,12 @@ namespace Assignment2.Data
         public static void SeedData(ApplicationDbContext db, UserManager<IdentityUser> userManager, ILogger log)
         {
             SeedUsers(userManager, log);
-            SeedData(db, log);
+            SeedGuests(db, log);
         }
 
         private static void SeedUsers(UserManager<IdentityUser> userManager, ILogger log)
         {
-<<<<<<< Updated upstream
-            const string adminEmailOne = "Lucas@localhost";
-            const string adminPasswordOne = "1234";
 
-            const string adminEmailTwo = "Caroline@localhost";
-            const string adminPasswordTwo = "1234";
-
-            const string adminEmailThree = "Henriette@localhost";
-            const string adminPasswordThree = "1234";
-
-            if (userManager.FindByNameAsync(adminEmailOne).Result == null)
-            {
-                log.LogWarning("Seeding admin user");
-                var user = new Staff
-                {
-                    UserName = adminEmailOne,
-                    Email = adminEmailOne,
-                    Name = "Lucas",
-                };
-                IdentityResult result = userManager.CreateAsync
-                    (user, adminPasswordOne).Result;
-                if (result.Succeeded)
-=======
             //Adding Lucas
 
             const string LucasEmail = "lucas@mail.dk";
@@ -64,50 +41,9 @@ namespace Assignment2.Data
                     userManager.AddClaimAsync(sr, lucasClaim2).Wait();
                 }
                 else
->>>>>>> Stashed changes
                 {
-                    var adminClaim = new Claim("Reception", "Yes");
-                    userManager.AddClaimAsync(user, adminClaim);
+                    log.LogInformation("CreateAsync Failed!");
                 }
-<<<<<<< Updated upstream
-            }
-
-
-            if (userManager.FindByNameAsync(adminEmailTwo).Result == null)
-            {
-                log.LogWarning("Seeding admin user");
-                var user = new Staff
-                {
-                    UserName = adminEmailTwo,
-                    Email = adminEmailTwo,
-                    Name = "Caroline",
-                };
-                IdentityResult result = userManager.CreateAsync
-                    (user, adminPasswordTwo).Result;
-                if (result.Succeeded)
-                {
-                    var adminClaim = new Claim("Resturant", "Yes");
-                    userManager.AddClaimAsync(user, adminClaim);
-                }
-            }
-
-            if (userManager.FindByNameAsync(adminEmailThree).Result == null)
-            {
-                log.LogWarning("Seeding admin user");
-                var user = new Staff
-                {
-                    UserName = adminEmailThree,
-                    Email = adminEmailThree,
-                    Name = "Henriette",
-                };
-                IdentityResult result = userManager.CreateAsync
-                    (user, adminPasswordThree).Result;
-                if (result.Succeeded)
-                {
-                    var adminClaim = new Claim("Reception", "Yes");
-                    userManager.AddClaimAsync(user, adminClaim);
-                }
-=======
 
             //adding Caroline
 
@@ -153,11 +89,10 @@ namespace Assignment2.Data
             else
             {
                 log.LogInformation("CreateAsync Failed!");
->>>>>>> Stashed changes
             }
         }
 
-        private static void SeedData(ApplicationDbContext db, ILogger log)
+        private static void SeedGuests(ApplicationDbContext db, ILogger log)
         {
             var b = db.Bookings.FirstOrDefault();
             if (b == null)
@@ -166,8 +101,7 @@ namespace Assignment2.Data
                 var bookings = new List<Bookings>();
                 b = new Bookings()
                 {
-                    ID = 1,
-                    Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                    Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                     RoomNumber = 206,
                     Adults = 2,
                     Kids = 3
@@ -177,8 +111,7 @@ namespace Assignment2.Data
 
                 b = new Bookings()
                 {
-                    ID = 2,
-                    Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                    Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                     RoomNumber = 102,
                     Adults = 2,
                     Kids = 0
@@ -187,8 +120,7 @@ namespace Assignment2.Data
 
                 b = new Bookings()
                 {
-                    ID = 3,
-                    Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                    Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                     RoomNumber = 201,
                     Adults = 2,
                     Kids = 1
@@ -196,7 +128,7 @@ namespace Assignment2.Data
                 bookings.Add(b);
 
                 db.Bookings.AddRange(bookings);
-                //db.SaveChangesAsync();
+                db.SaveChangesAsync().Wait();
 
                 var c = db.CheckIns.FirstOrDefault();
                 if (c == null)
@@ -205,8 +137,7 @@ namespace Assignment2.Data
                     var checkIns = new List<CheckIns>();
                     c = new CheckIns()
                     {
-                        ID = 1,
-                        Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                        Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                         RoomNumber = 206,
                         Adults = 1,
                         Kids = 1,
@@ -215,8 +146,7 @@ namespace Assignment2.Data
 
                     c = new CheckIns()
                     {
-                        ID = 2,
-                        Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                        Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                         RoomNumber = 102,
                         Adults = 2,
                         Kids = 0
@@ -225,8 +155,7 @@ namespace Assignment2.Data
 
                     c = new CheckIns()
                     {
-                        ID = 3,
-                        Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                        Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                         RoomNumber = 201,
                         Adults = 2,
                         Kids = 0
@@ -235,7 +164,7 @@ namespace Assignment2.Data
 
 
                     db.CheckIns.AddRange(checkIns);
-                    db.SaveChangesAsync();
+                    db.SaveChangesAsync().Wait();
                 }
             }
         }
