@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: HostingStartup(typeof(Assignment2.Areas.Identity.IdentityHostingStartup))]
+/*[assembly: HostingStartup(typeof(Assignment2.Areas.Identity.IdentityHostingStartup))]
 namespace Assignment2.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
@@ -21,8 +21,9 @@ namespace Assignment2.Areas.Identity
                         context.Configuration.GetConnectionString("Assignment2ContextConnection")));
 
                 /*services.AddDefaultIdentity<Staff>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<Assignment2Context>();*/
+                    .AddEntityFrameworkStores<Assignment2Context>();
             });
         }
     }
 }
+*/

@@ -50,14 +50,14 @@ namespace Assignment2
                 options.AddPolicy(
                     "IsReceptionStaff",
                     policyBuilder => policyBuilder
-                        .RequireRole("Reception"));
+                        .RequireClaim("Reception"));
             });
             services.AddAuthorization(options =>
             {
                 options.AddPolicy(
                     "IsResturantStaff",
                     policyBuilder => policyBuilder
-                        .RequireRole("Restaurant"));
+                        .RequireClaim("Restaurant"));
             });
 
             services.AddControllersWithViews();

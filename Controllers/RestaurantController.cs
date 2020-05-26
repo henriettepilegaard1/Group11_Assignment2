@@ -20,9 +20,10 @@ namespace Assignment2.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(Message? msg)
+        public async Task<IActionResult> Index()
         {
-            return View(msg);}
+            return View(await _context.Bookings.ToListAsync());
+        }
 
         public async Task<IActionResult> Submit([Bind("roomno,NoAdults,noKids")] CheckIns checkIns)
         {

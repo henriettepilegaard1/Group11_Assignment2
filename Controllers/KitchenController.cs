@@ -19,12 +19,12 @@ namespace Assignment2.Controllers
         }
 
 
-        public ActionResult Kitchen(DateTime date)
+        public ActionResult Kitchen(DateTime givenDate)
         {
             //DateTime date = DateTime.Today;
-            if (date.Year == 1)
+            if (givenDate.Year == 1)
             {
-                date = DateTime.Today;
+                givenDate = DateTime.Today;
             }
 
 
@@ -42,32 +42,34 @@ namespace Assignment2.Controllers
                 //.OrderBy(i=> i.Date)
             };
 
-            viewModel.Date = date;
+            viewModel.Date = givenDate;
 
 
             viewModel.CheckedIn = viewModel.CheckedIn.Where
-                (i => i.Date.Day == date.Day).ToList();
+                (i => i.Date.Day == givenDate.Day).ToList();
             viewModel.CheckedInAdults = 0;
             viewModel.CheckedInKids = 0;
+            viewModel.TotalCheckedIn = 0;
             foreach (var guest in viewModel.CheckedIn)
             {
                 viewModel.CheckedInAdults += guest.Adults;
                 viewModel.CheckedInKids += guest.Kids;
-
+                viewModel.TotalCheckedIn = guest.Kids + guest.Adults;
             }
 
             //viewModel.CheckedInGuests = viewModel.CheckedInGuests.Where
             //    (i => i.Date == date).ToList().
 
             viewModel.Booked = viewModel.Booked.Where
-                (i => i.Date.Day == date.Day).ToList();
+                (i => i.Date.Day == givenDate.Day).ToList();
             viewModel.BookedAdults = 0;
             viewModel.BookedKids = 0;
+            viewModel.TotalBooked = 0;
             foreach (var guest in viewModel.Booked)
             {
                 viewModel.BookedAdults += guest.Adults;
                 viewModel.BookedKids += guest.Kids;
-
+                viewModel.TotalBooked = guest.Kids + guest.Adults;
             }
 
 

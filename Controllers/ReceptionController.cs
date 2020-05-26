@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Assignment2.Data;
+using Assignment2.Models;
 
 namespace Assignment2.Controllers
 {
@@ -19,9 +20,11 @@ namespace Assignment2.Controllers
             _context = context;
         }
 
-        public IActionResult Reception()
+        public async Task<IActionResult> Reception()
         {
-            return View();
+            var checkIns = await _context.CheckIns.Where(x => x.Date.Day == DateTime.Today.Day).ToListAsync();
+
+            return View(checkIns);
         }
 
         public async Task<IActionResult> Index(DateTime date)

@@ -1,64 +1,10 @@
-﻿@model CheckIns
+﻿@model IEnumerable<Assignment2.Models.CheckIns>
 
 @{
     ViewData["Title"] = "Reception";
 }
 
 <h1>Reception</h1>
-
-<<<<<<< Updated upstream
-<p><b>Her kan du booke gæster til morgenmad på en ønsket dato</b> <br /> Hvilke gæster ønsker du at checke ind?</p>
-
-<br />
-
-<br />
-<form action="/action_page.php">
-    <label for="givenDate">Vælg dato:</label>
-    <input type="date" id="givenDate" name="givenDate">
-</form>
-
-<form action="/action_page.php">
-    <label for="roomno">Værelsesnummer:</label><br>
-    <input list="room-no" type="text">
-
-    <datalist id="room-no">
-
-        @for (int i = 1; i <= 100; i++)
-        {
-            <option value="@i"></option>
-        }
-    </datalist> <br>
-
-    <label for="noAdults">Antal voksne:</label><br>
-    <input list="no-adults" type="text">
-
-    <datalist id="no-adults">
-        @for (int i = 1; i <= 100; i++)
-        {
-            <option value="@i"></option>
-        }
-    </datalist><br>
-
-    <label for="noKids">Antal børn:</label><br>
-    <input list="no-kids" type="text">
-
-    <datalist id="no-kids">
-        @for (int i = 1; i <= 100; i++)
-        {
-            <option value="@i"></option>
-        }
-    </datalist><br><br>
-    <input type="submit" value="Book til morgenmad">
-</form>
-
-<p><b>Vis gæster der har været til morgenmad på den valgte dato</b></p>
-
-<input type="submit" value="Vis" class="button" />
-
-=======
-<body>
-    <div class="text-center">
-        >>>>>>> Stashed changes
 
         <figure>
             <img src="/Images/danglePic.jpg" alt="D'angleterre Logo" style="width:350px;height:150px;">
@@ -108,41 +54,47 @@
 
         <p> <b>Herunder ses hvilke gæster har spist morgenmad i dag.</b> </p>
 
-        <div>
-            <h4>CheckedInGuest</h4>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Date)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Date)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.RoomNumber)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.RoomNumber)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Adults)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Adults)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Kids)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Kids)
-                </dd>
-            </dl>
-        </div>
-        <div>
-            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-            <a asp-action="Index">Back to List</a>
-        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RoomNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Adults)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Kids)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RoomNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Adults)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Kids)
+                        </td>
+                        <td>
+                            @*<a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
-
-    </div>
-</body>

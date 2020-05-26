@@ -13,9 +13,9 @@ namespace Assignment2.Models
         public int BookedKids { get; set; }
         public int BookedAdults { get; set; }
         public int CheckedInKids { get; set; }
-
         public int CheckedInAdults { get; set; }
-
+        public int TotalCheckedIn { get; set; }
+        public int TotalBooked { get; set; }
         public DateTime Date { get; set; }
     }
 }
