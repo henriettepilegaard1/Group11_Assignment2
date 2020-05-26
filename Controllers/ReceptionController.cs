@@ -37,5 +37,17 @@ namespace Assignment2.Controllers
             var checkedIn = (await _context.CheckIns.ToListAsync()).Where(x => x.Date.Day == date.Day);
             return View(checkedIn);
         }
+
+        public async Task<IActionResult> submit([Bind("noAdults,noKids,date,roomno")] Bookings booking)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(booking);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(booking);
+        }
     }
 }

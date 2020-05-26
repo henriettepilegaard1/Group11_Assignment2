@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Assignment2.Controllers
 {
-    [Authorize("IsResturantStaff")]
+    //[Authorize("IsResturantStaff")]
     public class RestaurantController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,9 +20,20 @@ namespace Assignment2.Controllers
             _context = context;
         }
 
+
+
+        public async Task<IActionResult> Restaurant()
+        {
+            var Bookings = await _context.Bookings.Where(x => x.Date.Day == DateTime.Today.Day).ToListAsync();
+
+            return View(Bookings);
+        }
+
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Bookings.ToListAsync());
+            var Bookings = await _context.Bookings.Where(x => x.Date.Day == DateTime.Today.Day).ToListAsync();
+
+            return View(Bookings);
         }
 
         public async Task<IActionResult> Submit([Bind("roomno,NoAdults,noKids")] CheckIns checkIns)
@@ -42,6 +53,22 @@ namespace Assignment2.Controllers
                 msg = "Error"
             };
             return RedirectToAction(nameof(Index), routeValues: msg2);
+        }
+
+        // POST: CheckIns/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ID,Date,RoomNumber,Adults,Kids")] CheckIns checkIns)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(checkIns);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(checkIns);
         }
     }
 }

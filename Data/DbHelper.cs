@@ -101,7 +101,7 @@ namespace Assignment2.Data
                 var bookings = new List<Bookings>();
                 b = new Bookings()
                 {
-                    Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                    Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                     RoomNumber = 206,
                     Adults = 2,
                     Kids = 3
@@ -111,7 +111,7 @@ namespace Assignment2.Data
 
                 b = new Bookings()
                 {
-                    Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                    Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                     RoomNumber = 102,
                     Adults = 2,
                     Kids = 0
@@ -120,7 +120,7 @@ namespace Assignment2.Data
 
                 b = new Bookings()
                 {
-                    Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                    Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                     RoomNumber = 201,
                     Adults = 2,
                     Kids = 1
@@ -155,7 +155,7 @@ namespace Assignment2.Data
 
                     c = new CheckIns()
                     {
-                        Date = new DateTime(2020, 4, 17, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
+                        Date = new DateTime(2020, 5, 26, 12, 0, 0), //Date: 4-17-2020 (US format) 12:00 o' clock
                         RoomNumber = 201,
                         Adults = 2,
                         Kids = 0

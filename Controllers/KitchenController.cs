@@ -32,14 +32,8 @@ namespace Assignment2.Controllers
             var viewModel = new AllBookings
             {
                 CheckedIn = _context.CheckIns.ToList()
-                //.Include(i => i.Adult)
-                //.Include(i => i.Children)
-                //.OrderBy(i => i.Date)
                 ,
                 Booked = _context.Bookings.ToList()
-                //.Include(i => i.Children)
-                //.Include(i => i.Children)
-                //.OrderBy(i=> i.Date)
             };
 
             viewModel.Date = givenDate;
@@ -57,9 +51,6 @@ namespace Assignment2.Controllers
                 viewModel.TotalCheckedIn = guest.Kids + guest.Adults;
             }
 
-            //viewModel.CheckedInGuests = viewModel.CheckedInGuests.Where
-            //    (i => i.Date == date).ToList().
-
             viewModel.Booked = viewModel.Booked.Where
                 (i => i.Date.Day == givenDate.Day).ToList();
             viewModel.BookedAdults = 0;
@@ -72,10 +63,7 @@ namespace Assignment2.Controllers
                 viewModel.TotalBooked = guest.Kids + guest.Adults;
             }
 
-
-
             return View(viewModel);
-            //return View();
         }
 
     }
