@@ -1,4 +1,5 @@
-﻿
+﻿@model CheckIns
+
 @{
     ViewData["Title"] = "Reception";
 }
@@ -57,7 +58,7 @@
 =======
 <body>
     <div class="text-center">
->>>>>>> Stashed changes
+        >>>>>>> Stashed changes
 
         <figure>
             <img src="/Images/danglePic.jpg" alt="D'angleterre Logo" style="width:350px;height:150px;">
@@ -71,10 +72,10 @@
 
             <datalist id="hosting-plan">
                 @*<option value="1" />
-            <option value="2" />
-            <option value="3" />
-            <option value="4" />
-            <option value="5" />*@
+                <option value="2" />
+                <option value="3" />
+                <option value="4" />
+                <option value="5" />*@
                 @for (int i = 1; i <= 100; i++)
                 {
                     <option value="@i"></option>
@@ -106,6 +107,41 @@
         </form>
 
         <p> <b>Herunder ses hvilke gæster har spist morgenmad i dag.</b> </p>
+
+        <div>
+            <h4>CheckedInGuest</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Date)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Date)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.RoomNumber)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.RoomNumber)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Adults)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Adults)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Kids)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Kids)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
 
 
     </div>
