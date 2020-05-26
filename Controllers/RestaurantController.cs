@@ -10,11 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Assignment2.Controllers
 {
-<<<<<<< Updated upstream
-    //[Authorize("IsRestaurantStaff")]
-=======
     [Authorize("IsResturantStaff")]
->>>>>>> Stashed changes
     public class RestaurantController : Controller
     {
         private readonly ApplicationDbContext _context;

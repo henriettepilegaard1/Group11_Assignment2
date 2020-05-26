@@ -38,15 +38,7 @@ namespace Assignment2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-<<<<<<< Updated upstream
-            /*services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();*/
 
-            services.AddDefaultIdentity<Staff>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-=======
->>>>>>> Stashed changes
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -58,24 +50,14 @@ namespace Assignment2
                 options.AddPolicy(
                     "IsReceptionStaff",
                     policyBuilder => policyBuilder
-<<<<<<< Updated upstream
-                        .RequireClaim("Resturant"));
-
-=======
                         .RequireRole("Reception"));
             });
             services.AddAuthorization(options =>
             {
->>>>>>> Stashed changes
                 options.AddPolicy(
                     "IsResturantStaff",
                     policyBuilder => policyBuilder
-<<<<<<< Updated upstream
-                        .RequireClaim("Reception"));
-
-=======
                         .RequireRole("Restaurant"));
->>>>>>> Stashed changes
             });
 
             services.AddControllersWithViews();

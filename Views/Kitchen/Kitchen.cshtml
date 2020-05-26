@@ -1,21 +1,27 @@
-﻿
+﻿@model AllBookings
+
 @{
     ViewData["Title"] = "Kitchen";
+
+    int totalCheckIn;
+    int totalBooking;
 }
 
 <h1>Køkkenets side</h1>
-Her kan du finde informationer om følgende på en givet dato: det forventet antal gæster i alt samt hvor mange voksne og børn. <br/><br/>Du kan desuden finde info omkring antal voksne og børn checket ind.
-<br/>Samt hvor mange, der endnu ikke er checket ind i alt, herunder hvor mange voksne og børn.
-<br/>
+Her kan du finde informationer om følgende på en givet dato: det forventet antal gæster i alt samt hvor mange voksne og børn.
+<br />
+<br />Du kan desuden finde info omkring antal voksne og børn checket ind.
+<br />Samt hvor mange, der endnu ikke er checket ind i alt, herunder hvor mange voksne og børn.
+<br />
 
 
 <form action="/action_page.php">
     <label for="givenDate">Vis information for denne dato:</label>
-    <input type="date" id="givenDate" name="givenDate">
+    <input type="date" id="givenDate" name="givenDate" value="@Model.Date.ToString("yyyy-MM-dd")">
     <input type="submit" value="Vis information">
 </form>
 
-<br/>
+<br />
 <button type="button" onclick="alert('Informationen er opdateret!')">Opdater information!</button>
 
 <table class="table">
@@ -31,25 +37,25 @@ Her kan du finde informationer om følgende på en givet dato: det forventet ant
         <tr>
             <th scope="row" headers="group">Adults</th>
             <td>
-                @Model.ExpectedAdults
+                @Model.BookedAdults
             </td>
             <td>
                 @Model.CheckedInAdults
             </td>
             <td>
-                @(Model.ExpectedAdults - Model.CheckedInAdults)
+                @(Model.BookedAdults - Model.CheckedInAdults)
             </td>
         </tr>
         <tr>
             <th scope="row" headers="group">Children</th>
             <td>
-                @Model.ExpectedChildren
+                @Model.BookedKids
             </td>
             <td>
-                @Model.CheckedInChildren
+                @Model.CheckedInKids
             </td>
             <td>
-                @(Model.ExpectedChildren - Model.CheckedInChildren)
+                @(Model.BookedKids - Model.CheckedInKids)
             </td>
         </tr>
         <tr>
@@ -61,13 +67,13 @@ Her kan du finde informationer om følgende på en givet dato: det forventet ant
         <tr>
             <td headers="group">Total</td>
             <td>
-                @(totalExpected = Model.ExpectedChildren + Model.ExpectedAdults)
+                @(totalBooking = Model.BookedKids + Model.BookedAdults)
             </td>
             <td>
-                @(totalCheckedin = Model.CheckedInChildren + Model.CheckedInAdults)
+                @(totalCheckIn = Model.CheckedInKids + Model.CheckedInAdults)
             </td>
             <td>
-                @(totalExpected - totalCheckedin)
+                @(totalBooking - totalCheckIn)
             </td>
 
         </tr>

@@ -6,7 +6,6 @@ using Assignment2.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System.Security.Claims;
 
 namespace Assignment2.Data
 {
@@ -20,29 +19,7 @@ namespace Assignment2.Data
 
         private static void SeedUsers(UserManager<IdentityUser> userManager, ILogger log)
         {
-<<<<<<< Updated upstream
-            const string adminEmailOne = "Lucas@localhost";
-            const string adminPasswordOne = "1234";
 
-            const string adminEmailTwo = "Caroline@localhost";
-            const string adminPasswordTwo = "1234";
-
-            const string adminEmailThree = "Henriette@localhost";
-            const string adminPasswordThree = "1234";
-
-            if (userManager.FindByNameAsync(adminEmailOne).Result == null)
-            {
-                log.LogWarning("Seeding admin user");
-                var user = new Staff
-                {
-                    UserName = adminEmailOne,
-                    Email = adminEmailOne,
-                    Name = "Lucas",
-                };
-                IdentityResult result = userManager.CreateAsync
-                    (user, adminPasswordOne).Result;
-                if (result.Succeeded)
-=======
             //Adding Lucas
 
             const string LucasEmail = "lucas@mail.dk";
@@ -64,50 +41,9 @@ namespace Assignment2.Data
                     userManager.AddClaimAsync(sr, lucasClaim2).Wait();
                 }
                 else
->>>>>>> Stashed changes
                 {
-                    var adminClaim = new Claim("Reception", "Yes");
-                    userManager.AddClaimAsync(user, adminClaim);
+                    log.LogInformation("CreateAsync Failed!");
                 }
-<<<<<<< Updated upstream
-            }
-
-
-            if (userManager.FindByNameAsync(adminEmailTwo).Result == null)
-            {
-                log.LogWarning("Seeding admin user");
-                var user = new Staff
-                {
-                    UserName = adminEmailTwo,
-                    Email = adminEmailTwo,
-                    Name = "Caroline",
-                };
-                IdentityResult result = userManager.CreateAsync
-                    (user, adminPasswordTwo).Result;
-                if (result.Succeeded)
-                {
-                    var adminClaim = new Claim("Resturant", "Yes");
-                    userManager.AddClaimAsync(user, adminClaim);
-                }
-            }
-
-            if (userManager.FindByNameAsync(adminEmailThree).Result == null)
-            {
-                log.LogWarning("Seeding admin user");
-                var user = new Staff
-                {
-                    UserName = adminEmailThree,
-                    Email = adminEmailThree,
-                    Name = "Henriette",
-                };
-                IdentityResult result = userManager.CreateAsync
-                    (user, adminPasswordThree).Result;
-                if (result.Succeeded)
-                {
-                    var adminClaim = new Claim("Reception", "Yes");
-                    userManager.AddClaimAsync(user, adminClaim);
-                }
-=======
 
             //adding Caroline
 
@@ -153,7 +89,6 @@ namespace Assignment2.Data
             else
             {
                 log.LogInformation("CreateAsync Failed!");
->>>>>>> Stashed changes
             }
         }
 
